@@ -1,4 +1,4 @@
-### The Anatomy of a Single Class
+### 1. The Anatomy of a Single Class
 
 In UML, a class is represented as a rectangle divided into three horizontal compartments.
 

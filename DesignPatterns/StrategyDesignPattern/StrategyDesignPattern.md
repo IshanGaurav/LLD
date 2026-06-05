@@ -114,6 +114,13 @@ public class StrategyPatternDemo {
 
 ---
 
+
+## Conclusion
+* Encapsulate what varies & keep it separate from what remains same.
+* Solution to inheritance is not more inheritance.
+* Composition should be favoured over inheritance.
+* Code to interface & not to concrete implementation (written as "concretion" on the board).
+* Do NOT Repeat Yourself (DRY).
 ## 5. LLD Interview Checkpoint
 
 **Q1: How does the Strategy pattern uphold the Open/Closed Principle (OCP)?**

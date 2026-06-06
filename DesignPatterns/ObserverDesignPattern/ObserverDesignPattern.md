@@ -138,11 +138,6 @@ public class ObserverPatternDemo {
 
 ---
 
-It is crucial to know exactly when to pull this pattern out of your toolkit during an LLD interview. While we touched on a few simple examples like YouTube subscriptions, let's break down the heavy-duty, real-world systems that rely on the Observer pattern, along with the strict rules for when (and when not) to use it.
-
-You can append this directly to your Observer Pattern GitHub notes.
-
----
 
 ## Deeper Dive: Real-Life Uses & "When to Use" Rules
 

@@ -113,11 +113,6 @@ public class StrategyPatternDemo {
 
 
 ---
-This is a great request. Just like Observer, the Strategy Pattern is powerful, but throwing it at every problem will make your code a nightmare to read. You need to know exactly when it shines and when it is considered overengineering.
-
-You can append this directly to your Strategy Pattern GitHub notes.
-
----
 
 ## Deeper Dive: Real-Life Uses & "When to Use" Rules
 

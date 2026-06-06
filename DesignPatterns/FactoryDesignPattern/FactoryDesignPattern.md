@@ -100,7 +100,170 @@ public class FactoryPatternDemo {
 
 ---
 
-## 5. LLD Interview Checkpoint
+
+You are absolutely right to ask for this distinction. In Low-Level Design (LLD) interviews, simply saying "Factory Pattern" is a trap. The interviewer is waiting to see if you know the difference between the three distinct variations.
+
+What we wrote previously was the **Simple Factory** (also called the Factory Idiom). While useful, it is not actually an official "Gang of Four" (GoF) design pattern because it violates the Open/Closed Principle.
+
+Here is the complete breakdown of all three types to add to your GitHub repository.
+
+---
+
+## 5.The Three Types of Factory Patterns
+
+### Type 1: The Simple Factory (The Idiom)
+
+This is what we implemented in the previous section. It is a single class with one massive `create()` method (usually `static`) containing a large `if-else` or `switch` statement.
+
+* **The Problem:** It violates the **Open/Closed Principle (OCP)**. If you want to add a `Drone` transport, you are forced to open the `TransportFactory` class and modify the existing `if-else` logic.
+* **When to use it:** When the creation logic is very simple and the number of product types is fixed and rarely changes.
+
+---
+
+### Type 2: The Factory Method Pattern (The GoF Standard)
+
+To fix the Simple Factory's OCP violation, we stop using a single factory class. Instead, we define an interface for creating an object, but let subclasses decide which class to instantiate.
+
+
+## UML diagram
+<img width="645" height="376" alt="image" src="https://github.com/user-attachments/assets/9e9e4018-b5c4-4957-8ec7-6bbe9fbf6552" />
+
+**The Concept:** We move the creation logic from a centralized `if-else` block into separate, dedicated factory classes for each product.
+
+```java
+// 1. The Product Interface (Same as before)
+interface Transport { void deliver(); }
+
+class Truck implements Transport {
+    public void deliver() { System.out.println("Delivering by land."); }
+}
+class Ship implements Transport {
+    public void deliver() { System.out.println("Delivering by sea."); }
+}
+
+// 2. The CREATOR Interface (The core of Factory Method)
+abstract class Logistics {
+    // The Factory Method itself!
+    public abstract Transport createTransport(); 
+
+    // Core business logic that uses the factory method
+    public void planDelivery() {
+        Transport t = createTransport();
+        t.deliver();
+    }
+}
+
+// 3. Concrete Creators (Subclasses decide what to instantiate)
+class RoadLogistics extends Logistics {
+    @Override
+    public Transport createTransport() {
+        return new Truck();
+    }
+}
+
+class SeaLogistics extends Logistics {
+    @Override
+    public Transport createTransport() {
+        return new Ship();
+    }
+}
+
+// 4. Execution
+public class FactoryMethodDemo {
+    public static void main(String[] args) {
+        Logistics logistics = new RoadLogistics();
+        logistics.planDelivery(); // Output: Delivering by land.
+    }
+}
+
+```
+
+**Why this is better (C++ to Java Bridge):** In C++, this is known as a **Virtual Constructor**. By making `createTransport()` an abstract method (pure virtual function), we force the child classes (`RoadLogistics`) to implement it.
+Now, if you want to add a `Drone`, you don't touch existing code. You simply create a new class `AirLogistics extends Logistics` that returns a `new Drone()`. **OCP is perfectly maintained.**
+
+---
+
+### Type 3: The Abstract Factory (The Factory of Factories)
+
+The Abstract Factory is the heaviest creational pattern.
+
+* **The Concept:** It is used when you need to create **families of related or dependent objects** without specifying their concrete classes.
+* **The Classic LLD Scenario:** Cross-platform User Interfaces (UI). If a user is on Windows, the system must create a Windows-style Button and a Windows-style Checkbox. If on macOS, it must create Mac-style elements. You absolutely cannot mix a Mac Button with a Windows Checkbox.
+
+## UML diagram
+<img width="752" height="567" alt="image" src="https://github.com/user-attachments/assets/355ffae4-9dbf-4d93-a9be-55c36792dde4" />
+
+```java
+// 1. Abstract Products
+interface Button { void paint(); }
+interface Checkbox { void paint(); }
+
+// 2. Concrete Products (The Families)
+class WinButton implements Button {
+    public void paint() { System.out.println("Rendering sharp Windows button."); }
+}
+class MacButton implements Button {
+    public void paint() { System.out.println("Rendering rounded Mac button."); }
+}
+class WinCheckbox implements Checkbox {
+    public void paint() { System.out.println("Rendering Windows checkbox."); }
+}
+class MacCheckbox implements Checkbox {
+    public void paint() { System.out.println("Rendering Mac checkbox."); }
+}
+
+// 3. The Abstract Factory Interface
+interface GUIFactory {
+    Button createButton();
+    Checkbox createCheckbox();
+}
+
+// 4. Concrete Factories (Produce the specific families)
+class WinFactory implements GUIFactory {
+    public Button createButton() { return new WinButton(); }
+    public Checkbox createCheckbox() { return new WinCheckbox(); }
+}
+
+class MacFactory implements GUIFactory {
+    public Button createButton() { return new MacButton(); }
+    public Checkbox createCheckbox() { return new MacCheckbox(); }
+}
+
+// 5. The Client (Oblivious to the OS)
+class Application {
+    private Button button;
+    private Checkbox checkbox;
+
+    // Constructor injection guarantees matching families
+    public Application(GUIFactory factory) {
+        button = factory.createButton();
+        checkbox = factory.createCheckbox();
+    }
+
+    public void render() {
+        button.paint();
+        checkbox.paint();
+    }
+}
+
+```
+
+**The Takeaway:** The `Application` class doesn't know if it is running on Windows or Mac. It just asks the `GUIFactory` for a button and a checkbox. The Abstract Factory guarantees that the created objects are compatible with each other.
+
+---
+
+### LLD Interview: Factory Types Summary
+
+If an interviewer asks you to summarize them, give them this punchy breakdown:
+
+1. **Simple Factory:** 1 Factory class. Uses an `if-else` statement to return a single product type. (Violates OCP).
+2. **Factory Method:** 1 Creator Interface, many Subclass Creators. Relies on **Inheritance** to let subclasses decide which single product to instantiate. (Follows OCP).
+3. **Abstract Factory:** 1 Factory Interface, many Concrete Factories. Relies on **Composition** to create a whole *family* of related products.
+
+---
+
+
+## 6. LLD Interview Checkpoint
 
 **Q1: What is the main difference between the Factory Pattern and the Strategy Pattern?**
 

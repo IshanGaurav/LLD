@@ -252,6 +252,7 @@ class Application {
 
 ---
 
+
 ### LLD Interview: Factory Types Summary
 
 If an interviewer asks you to summarize them, give them this punchy breakdown:
@@ -259,6 +260,13 @@ If an interviewer asks you to summarize them, give them this punchy breakdown:
 1. **Simple Factory:** 1 Factory class. Uses an `if-else` statement to return a single product type. (Violates OCP).
 2. **Factory Method:** 1 Creator Interface, many Subclass Creators. Relies on **Inheritance** to let subclasses decide which single product to instantiate. (Follows OCP).
 3. **Abstract Factory:** 1 Factory Interface, many Concrete Factories. Relies on **Composition** to create a whole *family* of related products.
+
+---
+
+## When to Use
+* Multiple object types
+* Encapsulating creation logic
+* Framework development
 
 ---
 

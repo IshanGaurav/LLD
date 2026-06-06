@@ -114,7 +114,17 @@ public class StrategyPatternDemo {
 
 ---
 
+## Real-Life Example
 
+`Google Maps:`
+* Car Route
+* Bike Route
+* Walking Route
+
+## When to Use
+* Multiple interchangeable algorithms
+* Avoiding large if-else chains
+* Following Open-Closed Principle
 ## Conclusion
 * Encapsulate what varies & keep it separate from what remains same.
 * Solution to inheritance is not more inheritance.

@@ -100,15 +100,6 @@ public class FactoryPatternDemo {
 
 ---
 
-
-You are absolutely right to ask for this distinction. In Low-Level Design (LLD) interviews, simply saying "Factory Pattern" is a trap. The interviewer is waiting to see if you know the difference between the three distinct variations.
-
-What we wrote previously was the **Simple Factory** (also called the Factory Idiom). While useful, it is not actually an official "Gang of Four" (GoF) design pattern because it violates the Open/Closed Principle.
-
-Here is the complete breakdown of all three types to add to your GitHub repository.
-
----
-
 ## 5.The Three Types of Factory Patterns
 
 ### Type 1: The Simple Factory (The Idiom)
@@ -262,11 +253,6 @@ If an interviewer asks you to summarize them, give them this punchy breakdown:
 3. **Abstract Factory:** 1 Factory Interface, many Concrete Factories. Relies on **Composition** to create a whole *family* of related products.
 
 ---
-You got it. We covered the code for the Factory Pattern earlier, but knowing exactly when to deploy it—and recognizing when it's just adding unnecessary weight to your codebase—is what separates a junior engineer from a system architect.
-
-You can append this directly to your Factory Pattern GitHub notes.
-
----
 
 ## Deeper Dive: Real-Life Uses & "When to Use" Rules
 
@@ -303,9 +289,6 @@ Factories are the most overused design pattern by developers who are just learni
 
 ---
 
-That wraps up the heavy hitters for Creational and Behavioral patterns. We haven't touched **Structural** patterns yet, which deal with how you combine classes into larger, flexible structures.
-
-Would you like to map out **Decorator** (how to wrap objects with new features without altering their code) or **Facade** (how to hide a massive, ugly subsystem behind one clean interface) next?
 ## When to Use
 * Multiple object types
 * Encapsulating creation logic

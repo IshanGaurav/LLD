@@ -1,11 +1,3 @@
-We are officially moving into **Structural Design Patterns**. While Creational patterns (like Factory) build objects, and Behavioral patterns (like Strategy) dictate how they communicate, Structural patterns dictate how you assemble classes and objects into larger, flexible structures.
-
-The **Decorator Design Pattern** is arguably the most famous structural pattern. It is the ultimate weapon against the "Class Explosion" problem.
-
-Here are your complete, GitHub-ready notes for the Decorator Pattern.
-
----
-
 # The Decorator Design Pattern
 
 ## 1. The Problem: The "Class Explosion"
@@ -154,12 +146,6 @@ public class DecoratorDemo {
 * **The Concept:** This acts like a recursive function. When you call `.getCost()` on the outermost wrapper, it drills all the way down to the `SimpleCoffee` to get the base $2.00, then bubbles back up, adding $0.50, then adding $0.90, etc.
 
 
-
----
-You got it. We covered the code for the Factory Pattern earlier, but knowing exactly when to deploy it—and recognizing when it's just adding unnecessary weight to your codebase—is what separates a junior engineer from a system architect.
-
-You can append this directly to your Factory Pattern GitHub notes.
-
 ---
 
 ## Deeper Dive: Real-Life Uses & "When to Use" Rules
@@ -197,9 +183,6 @@ Factories are the most overused design pattern by developers who are just learni
 
 ---
 
-That wraps up the heavy hitters for Creational and Behavioral patterns. We haven't touched **Structural** patterns yet, which deal with how you combine classes into larger, flexible structures.
-
-Would you like to map out **Decorator** (how to wrap objects with new features without altering their code) or **Facade** (how to hide a massive, ugly subsystem behind one clean interface) next?
 ## 5. LLD Interview Checkpoint
 
 **Q1: What is the difference between Decorator and Strategy?**
@@ -211,8 +194,4 @@ Would you like to map out **Decorator** (how to wrap objects with new features w
 * **Answer:** When the exact order of execution strictly matters, or when you have to write code that relies on the specific concrete type of an object. Once you wrap a `SimpleCoffee` in a `Milk` decorator, it is no longer recognized as a `SimpleCoffee` type by the system; it is just a generic `Beverage`.
 
 
----
 
-That covers the most critical Structural pattern. In LLD interviews, you might also run into **Facade** (creating a simple interface to hide a complex system of classes) or **Adapter** (making two incompatible interfaces work together, like a USB-to-USBC dongle).
-
-Would you like to map out one of those next to finish out the Structural category, or are you ready to test your knowledge with a full system design prompt?

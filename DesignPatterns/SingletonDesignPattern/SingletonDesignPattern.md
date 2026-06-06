@@ -113,13 +113,6 @@ public class SingletonDemo {
 
 
 ---
-Perfect. Just like we did with Observer and Strategy, let's look at the absolute strict rules for when to use—and more importantly, when *not* to use—the **Singleton Pattern**.
-
-Because Singleton is often considered an "Anti-Pattern" by modern senior developers, knowing its exact boundaries is one of the easiest ways to score points in an LLD interview.
-
-You can append this directly to your Singleton Pattern GitHub notes.
-
----
 
 ## Deeper Dive: Real-Life Uses & "When to Use" Rules
 

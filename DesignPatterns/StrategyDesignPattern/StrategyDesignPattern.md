@@ -119,19 +119,19 @@ public class StrategyPatternDemo {
 
 ### 1. Heavy-Duty Real-World Examples
 
-* **Navigation Systems (like Google Maps):**
+#### **Navigation Systems (like Google Maps):**
 * **The Context:** The Route Calculator.
 * **The Strategies:** `WalkingStrategy`, `DrivingStrategy`, `PublicTransitStrategy`, `BikingStrategy`.
 * **How it works:** The user enters a destination. When they click the "Car" icon, the app injects the `DrivingStrategy` to calculate highway traffic and one-way streets. If they click the "Train" icon, the app dynamically swaps to the `PublicTransitStrategy` to calculate train schedules. The core Map UI doesn't change, only the routing algorithm does.
 
 
-* **E-Commerce Payment Processing (like Amazon or Stripe):**
+#### **E-Commerce Payment Processing (like Amazon or Stripe):**
 * **The Context:** The Checkout Cart.
 * **The Strategies:** `CreditCardPayment`, `PayPalPayment`, `CryptoPayment`, `ApplePayPayment`.
 * **How it works:** Each payment method requires completely different security checks, API calls, and fee calculations. Instead of a 1,000-line `if-else` block in the checkout system, each payment type is its own isolated class.
 
 
-* **File Compression Tools (like WinRAR or 7-Zip):**
+#### **File Compression Tools (like WinRAR or 7-Zip):**
 * **The Context:** The Archiver.
 * **The Strategies:** `ZipCompression`, `RarCompression`, `TarCompression`.
 * **How it works:** The user selects files and chooses an output format. The application dynamically assigns the correct compression algorithm before processing the bytes.

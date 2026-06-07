@@ -7,7 +7,8 @@ Imagine you are building a logistics application. You start with truck deliverie
 **The Breaking Point:** Business is booming, and the company expands to sea deliveries using Ships. Now, you have to hunt down all 50 places where you wrote `new Truck()` and change it to complex `if-else` logic:
 `if (seaDelivery) { t = new Ship(); } else { t = new Truck(); }`
 
-**The Creation Problem:** 1. **Tight Coupling:** Your main business logic is completely chained to concrete classes (`Truck` and `Ship`).
+**The Creation Problem:**
+1. **Tight Coupling:** Your main business logic is completely chained to concrete classes (`Truck` and `Ship`).
 2. **Maintenance Nightmare:** If you add a `Drone` delivery next month, you have to modify your core business code all over again.
 
 ## 2. The Definition

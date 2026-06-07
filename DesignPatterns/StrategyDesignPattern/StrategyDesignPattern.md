@@ -11,7 +11,8 @@ Imagine you are building a racing game. You create a parent class `Vehicle` with
 **The Breaking Point:** Now, you need to add a `RallyCar`. A Rally Car needs the exact same fast `drive()` logic as the `SportsCar`.
 Because Java does not support multiple class inheritance, you cannot inherit the `SportsCar`'s drive method without inheriting *everything* else a sports car is. Your only choice is to copy-paste the fast `drive()` code into the `RallyCar` class.
 
-**The Inheritance Problem:** 1.  **Code Duplication:** Siblings (SportsCar and RallyCar) share behavior, forcing you to duplicate code.
+**The Inheritance Problem:** 
+1.  **Code Duplication:** Siblings (SportsCar and RallyCar) share behavior, forcing you to duplicate code.
 2.  **Rigidity:** An object's behavior is locked at compile-time. A `SportsCar` cannot dynamically switch to "Off-Road" mode if it drives onto dirt during the game.
 
 ## 2. The Definition
